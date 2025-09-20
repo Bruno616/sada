@@ -15,3 +15,11 @@ next.addEventListener("click", () => mostrarSlide(slideIndex + 1));
 setInterval(() => {
   mostrarSlide(slideIndex + 1);
 }, 5000);
+
+// MENU HAMBÚRGUER
+const menuToggle = document.getElementById("menu-toggle");
+const menu = document.getElementById("menu");
+
+menuToggle.addEventListener("click", () => {
+  menu.classList.toggle("ativo");
+});
