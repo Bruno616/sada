@@ -32,11 +32,6 @@ header .logo {
   color: #a64dff;
 }
 
-/* Menu desktop (visível só em telas grandes) */
-header nav {
-  display: block;
-}
-
 header nav ul {
   list-style: none;
   display: flex;
@@ -72,19 +67,17 @@ header nav a:hover {
 
 .slide img {
   width: 100%;
-  height: 500px;
+  height: 600px;
   object-fit: cover;
 }
 
 .slide .texto {
   position: absolute;
-  bottom: 30px;
-  left: 20px;
-  right: 20px;
+  bottom: 50px;
+  left: 50px;
   background: rgba(0,0,0,0.6);
-  padding: 1rem;
+  padding: 1rem 2rem;
   border-radius: 10px;
-  text-align: center;
 }
 
 .controles {
@@ -126,9 +119,8 @@ header nav a:hover {
   background: #1a1a1a;
   padding: 1rem;
   border-radius: 10px;
-  width: 180px;
+  width: 200px;
   transition: transform 0.3s;
-  text-align: center;
 }
 
 .card:hover {
@@ -136,12 +128,8 @@ header nav a:hover {
 }
 
 .card img {
-  width: 150px;
-  height: 150px;
-  object-fit: cover;
+  width: 100%;
   border-radius: 10px;
-  display: block;
-  margin: 0 auto 10px;
 }
 
 /* Sobre */
@@ -170,8 +158,8 @@ header nav a:hover {
 }
 
 .mvv-card {
-  background-color: #000;
-  color: #fff;
+  background-color: #000; /* fundo preto */
+  color: #fff; /* texto branco */
   border-radius: 15px;
   padding: 20px;
   width: 280px;
@@ -189,6 +177,14 @@ header nav a:hover {
 .mvv-card p {
   font-size: 1rem;
   line-height: 1.5;
+}
+
+/* Responsividade */
+@media (max-width: 900px) {
+  .mvv-cards {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 /* Contato */
@@ -266,100 +262,42 @@ footer p {
   to { transform: translateX(-50%); }
 }
 
-/* ===================== */
-/* RESPONSIVIDADE */
-/* ===================== */
-
-@media (max-width: 1024px) {
-  header nav ul {
-    gap: 1rem;
-  }
-  .slide img {
-    height: 400px;
-  }
+/* Menu Hamburguer */
+.menu-toggle {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #a64dff;
 }
 
+/* Mobile */
 @media (max-width: 768px) {
-  /* Header mantém logo esquerda + hambúrguer direita */
   header {
     flex-direction: row;
     justify-content: space-between;
-  }
-
-  /* Esconde menu desktop */
-  header nav {
-    display: none;
   }
 
   .menu-toggle {
     display: block;
   }
 
-  /* Menu mobile (abaixo do header) */
-  #menu {
+  header nav {
     display: none;
-    background: #000;
     width: 100%;
   }
 
-  #menu ul {
-    list-style: none;
-    display: flex;
+  header nav.ativo {
+    display: block;
+    background: #000;
+  }
+
+  header nav ul {
     flex-direction: column;
     gap: 1rem;
     padding: 1rem 0;
-    margin: 0;
   }
 
-  #menu ul li {
+  header nav ul li {
     text-align: center;
   }
-
-  #menu ul li a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 1.1rem;
-  }
-
-  #menu.ativo {
-    display: block;
-    animation: slideDown 0.3s ease forwards;
-  }
-
-  /* Animação de descida */
-  @keyframes slideDown {
-    from {
-      opacity: 0;
-      transform: translateY(-20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-}
-
-@media (max-width: 480px) {
-  body {
-    font-size: 14px;
-  }
-  .card {
-    width: 100%;
-    max-width: 250px;
-  }
-  .mvv-cards {
-    flex-direction: column;
-    gap: 20px;
-  }
-  .slide img {
-    height: 220px;
-  }
-}
-
-/* Botão hamburguer */
-.menu-toggle {
-  display: none;
-  font-size: 2rem;
-  cursor: pointer;
-  color: #a64dff;
 }
