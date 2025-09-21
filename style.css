@@ -301,3 +301,8 @@ footer p {
     text-align: center;
   }
 }
+
+header .logo img{
+  height: 100px;
+  width: auto;
+}
